@@ -1,0 +1,30 @@
+project:
+  name: clasesparticulares
+  type: astro
+  framework: astro@4.0
+
+agents:
+  - web-builder
+  - content-manager
+  - astro-expert
+
+skills:
+  - curso-manager
+  - curso-generator
+  - seo-optimizer
+  - deploy-checker
+
+commands:
+  - new-course
+  - optimize-images
+  - content-audit
+
+custom:
+  deploy:
+    host: vps.example.com
+    user: deploy
+    path: /var/www/clasesparticulares
+  content:
+    tipos_clase:
+      - presencial
+      - online

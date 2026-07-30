@@ -1,0 +1,30 @@
+---
+import { profesor } from '@/data/cursos'
+---
+
+<footer class="bg-gray-800 dark:bg-gray-950 text-gray-300 dark:text-gray-400 mt-auto transition-colors">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="flex items-start gap-4">
+      <img src="/escudo-el-ejido.svg" alt="Escudo de El Ejido" class="h-20 w-auto flex-shrink-0" />
+      <div>
+        <h3 class="text-white dark:text-gray-100 font-bold text-lg mb-3">Clases Particulares</h3>
+        <p class="text-sm leading-relaxed">
+          Refuerzo escolar para ESO, Bachillerato y CFGS. Especialidad en matemáticas, física y química.
+        </p>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white dark:text-gray-100 font-semibold mb-3">Contacto</h4>
+      <p class="text-sm">{profesor.titulo}</p>
+      <p class="text-sm mt-2">Clases individuales a domicilio en El Ejido (Almería)</p>
+    </div>
+    <div>
+      <h4 class="text-white dark:text-gray-100 font-semibold mb-3">Horarios</h4>
+      <p class="text-sm">Clases en horario flexible</p>
+      <p class="text-sm mt-1">Consulta disponibilidad</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 dark:border-gray-800 text-center text-sm py-4">
+    Clases Particulares El Ejido
+  </div>
+</footer>
