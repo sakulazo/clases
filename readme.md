@@ -5,3 +5,12 @@
 * Web desarrollada con Astro
 
 * Despliegue en VPS propio y dominio clases.sakulazo.com
+
+## Despliegue
+
+```bash
+make deploy MSG="descripción del cambio"
+```
+
+Ver `despliegue.readme.md` para el detalle (modelo GitOps de escritura única,
+usuario `sakulito`, rama `master`).
