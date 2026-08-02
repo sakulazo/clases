@@ -1,7 +1,5 @@
 # Makefile — despliegue de clases.sakulazo.com
 # Uso: make deploy MSG="descripción del cambio"
-# Nota: el proyecto vive en la rama `master` (origin/main contiene un upload
-# residual sin la estructura Astro; no usar).
 
 MSG        ?=
 SSH_HOST   := sakulito@185.214.134.40
@@ -9,7 +7,7 @@ SSH_PORT   := 42932
 SSH_KEY    := $(HOME)/.ssh/id_ed25519
 REMOTE_DIR := /srv/clases
 GIT_REMOTE := origin
-GIT_BRANCH := master
+GIT_BRANCH := main
 
 .PHONY: help build push deploy verify
 

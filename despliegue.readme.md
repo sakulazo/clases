@@ -13,7 +13,7 @@
 ├──────────────────────────────────────────────────────────┤
 │  make deploy MSG="..."                                   │
 │    ├── pnpm build  →  Genera dist/                       │
-│    ├── git add/commit/push  →  GitHub (rama master)      │
+│    ├── git add/commit/push  →  GitHub (rama main)        │
 │    └── tar|ssh  →  Sube dist/ al VPS (usuario sakulito)  │
 └──────────────────────────────────────────────────────────┘
                          │
@@ -56,7 +56,7 @@ Esto ejecuta automáticamente:
 | 1 | `pnpm build` | Compila el sitio Astro → `dist/` |
 | 2 | `git add -A` | Añade todos los cambios al stage |
 | 3 | `git commit -m "..."` | Commitea con el mensaje indicado |
-| 4 | `git push origin master` | Sube los cambios a GitHub |
+| 4 | `git push origin main` | Sube los cambios a GitHub |
 | 5 | `tar \| ssh` | Copia `dist/` a `/srv/clases/` (con permisos y propietario correctos) |
 | 6 | `curl` | Verifica HTTP 200 en `https://clases.sakulazo.com/` |
 
@@ -88,7 +88,7 @@ pnpm build
 # 2. Guardar cambios en git
 git add -A
 git commit -m "Descripción de los cambios"
-git push origin master
+git push origin main
 
 # 3. Copiar al VPS (tar evita sobrescribir con permisos rotos)
 tar -C dist -cf - . | ssh -i ~/.ssh/id_ed25519 -p 42932 sakulito@185.214.134.40 \
@@ -126,7 +126,7 @@ curl -s -o /dev/null -w "%{http_code}\n" https://clases.sakulazo.com/
 - **No hace falta reiniciar Caddy** tras copiar archivos, porque sirve contenido estático directamente desde el disco.
 - **Los cambios en el Caddyfile** (como añadir un nuevo dominio) sí requieren reiniciar el contenedor: `docker compose -f /home/infra/stacks/caddy/compose.yml up -d --force-recreate caddy`
 - **El sitio es 100% estático** (SSG), generado por Astro. No necesita Node.js ni base de datos en producción.
-- **Rama `master`**: el proyecto vive en `master`. La rama `main` de GitHub contiene un upload residual sin la estructura Astro (no usar).
+- **Rama `main`**: el proyecto vive en `main` (2026-08-03: se eliminó el residual de la antigua `main` y se unificó; `master` ya no existe).
 
 ## Solución de problemas
 
@@ -136,4 +136,4 @@ curl -s -o /dev/null -w "%{http_code}\n" https://clases.sakulazo.com/
 | Caddy no sirve el sitio | Falta el mount en compose.yml | Añadir `- /srv/clases:/srv/clases:ro` en `volumes` y recrear contenedor |
 | SSL no se emite | DNS no resuelve | Verificar registro A de `clases.sakulazo.com` |
 | `ssh sakulito` no funciona | Clave no autorizada | Verificar `~/.ssh/id_ed25519.pub` en `/home/sakulito/.ssh/authorized_keys` |
-| Push a `main` por error | Rama equivocada | `git push origin master`; no borrar nada en `main` sin avisar |
+| Push a `master` por error | Rama antigua ya borrada | Usar `git push origin main`; `master` fue eliminada el 2026-08-03 |

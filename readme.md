@@ -13,4 +13,4 @@ make deploy MSG="descripción del cambio"
 ```
 
 Ver `despliegue.readme.md` para el detalle (modelo GitOps de escritura única,
-usuario `sakulito`, rama `master`).
+usuario `sakulito`, rama `main`).
