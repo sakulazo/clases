@@ -11,6 +11,9 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.5(astro@4.16.19(rollup@4.62.3)(typescript@5.9.3))(tailwindcss@3.4.19(yaml@2.9.0))
+      '@lucide/astro':
+        specifier: ^1.56.0
+        version: 1.56.0(astro@4.16.19(rollup@4.62.3)(typescript@5.9.3))
       astro:
         specifier: ^4.16.0
         version: 4.16.19(rollup@4.62.3)(typescript@5.9.3)
@@ -407,6 +410,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@lucide/astro@1.56.0':
+    resolution: {integrity: sha512-BLLnB+qj1SG60WyvkcGxSfBo0Nq2ZMjJI+39KVhgZJlQKQ4+1XOArJonl4Ktx/D2N6OcbJXNnFLsCbunf1AtXQ==}
+    peerDependencies:
+      astro: ^4 || ^5 || ^6 || ^7
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2180,6 +2188,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@lucide/astro@1.56.0(astro@4.16.19(rollup@4.62.3)(typescript@5.9.3))':
+    dependencies:
+      astro: 4.16.19(rollup@4.62.3)(typescript@5.9.3)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

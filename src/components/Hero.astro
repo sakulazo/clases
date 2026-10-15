@@ -1,31 +1,67 @@
 ---
 import { profesor } from '@/data/cursos'
+
+// Partimos el subtítulo en dos líneas justo después de "en"
+const [tituloLinea1, tituloLinea2] = profesor.titulo.split(' en ')
 ---
 
-<section class="bg-gradient-to-br from-primary-600 to-primary-800 dark:from-primary-700 dark:to-primary-900 text-white py-20 transition-colors">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">
-      Clases Particulares de Refuerzo
+<section
+  id="inicio"
+  class="relative isolate scroll-mt-20 min-h-[calc(100svh-4rem)] flex items-center overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 dark:from-primary-800 dark:via-primary-900 dark:to-gray-950 text-white py-20 transition-colors"
+>
+  <!-- Fondos decorativos (degradados y brillos) -->
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-primary-400/30 blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-24 h-[30rem] w-[30rem] rounded-full bg-fuchsia-500/20 blur-3xl"></div>
+    <div class="absolute top-1/4 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary-300/20 blur-3xl"></div>
+    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary-900/50 to-transparent"></div>
+  </div>
+
+  <div class="w-full max-w-6xl mx-auto px-4 text-center">
+    <div class="inline-flex items-center justify-center bg-white rounded-3xl p-6 mb-8 shadow-2xl shadow-black/40 ring-1 ring-white/40">
+      <img
+        src="/logo_clases_2colores_vertical.svg"
+        alt="Clases Particulares"
+        class="h-40 md:h-48 w-auto"
+      />
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 [text-shadow:0_2px_6px_rgba(0,0,0,0.35),0_6px_24px_rgba(76,29,149,0.55)]">
+      Clases individuales de refuerzo
     </h1>
     <p class="text-xl text-primary-100 dark:text-primary-200 mb-2">
-      {profesor.titulo}
+      {tituloLinea1} en<br />{tituloLinea2}
     </p>
-    <p class="inline-block bg-primary-500/30 text-primary-100 px-4 py-1 rounded-full text-sm font-medium mb-8">
+    <p class="inline-block bg-white/10 border border-white/20 backdrop-blur-sm text-primary-50 px-4 py-1 rounded-full text-sm font-medium mb-8 shadow-lg shadow-black/20">
       {profesor.modalidad}
     </p>
-    <div class="flex gap-4 justify-center">
+
+    <div class="flex flex-wrap gap-4 justify-center">
       <a
         href="#niveles"
-        class="bg-white text-primary-700 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors"
+        class="bg-white text-primary-700 px-6 py-3 rounded-lg font-semibold shadow-lg shadow-black/30 hover:bg-primary-50 hover:shadow-xl hover:-translate-y-0.5 transition-all"
       >
         Ver niveles
       </a>
       <a
-        href="/contacto"
-        class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+        href="#contacto"
+        class="border-2 border-white/80 text-white bg-white/5 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold shadow-lg shadow-black/25 hover:bg-white/15 hover:-translate-y-0.5 transition-all"
       >
         Contactar
       </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="mt-12 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
+      <div class="text-center">
+        <p class="text-3xl sm:text-4xl font-bold text-white drop-shadow-[0_2px_12px_rgba(76,29,149,0.6)]">+10 años</p>
+        <p class="text-primary-100 text-sm">experiencia</p>
+      </div>
+      <div class="hidden sm:block w-px h-12 bg-gradient-to-b from-transparent via-primary-200/70 to-transparent"></div>
+      <div class="text-center">
+        <p class="text-3xl sm:text-4xl font-bold text-white drop-shadow-[0_2px_12px_rgba(76,29,149,0.6)]">&gt;95%</p>
+        <p class="text-primary-100 text-sm">índice de aprobados</p>
+      </div>
     </div>
   </div>
 </section>

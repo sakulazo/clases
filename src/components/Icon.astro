@@ -1,0 +1,37 @@
+---
+import {
+  Ruler,
+  Zap,
+  FlaskConical,
+  ChartColumn,
+  Coins,
+  ClipboardList,
+  FileText,
+  MessageCircle,
+  type AstroComponent
+} from '@lucide/astro'
+
+// Mapa de nombres (usados en src/data/cursos.ts) a iconos de Lucide.
+// Para añadir uno nuevo: impórtalo arriba y añádelo aquí.
+const icons: Record<string, AstroComponent> = {
+  ruler: Ruler,
+  zap: Zap,
+  'flask-conical': FlaskConical,
+  'chart-column': ChartColumn,
+  coins: Coins,
+  'clipboard-list': ClipboardList,
+  'file-text': FileText,
+  'message-circle': MessageCircle
+}
+
+export interface Props {
+  name: string
+  class?: string
+  size?: number | string
+}
+
+const { name, class: className, size } = Astro.props
+const Icon = icons[name]
+---
+
+{Icon && <Icon class={className} size={size} />}

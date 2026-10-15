@@ -1,6 +1,7 @@
 export interface Asignatura {
   nombre: string
   descripcion: string
+  /** Nombre del icono de Lucide (ver src/components/Icon.astro) */
   icono: string
 }
 
@@ -18,6 +19,7 @@ export interface Nivel {
 
 export interface Especialidad {
   nombre: string
+  /** Nombre del icono de Lucide (ver src/components/Icon.astro) */
   icono: string
   color: string
   descripcion: string
@@ -29,9 +31,9 @@ export const niveles: Nivel[] = [
     label: 'ESO',
     descripcion: 'Educación Secundaria Obligatoria',
     asignaturas: [
-      { nombre: 'Matemáticas', descripcion: 'Álgebra, geometría, estadística y probabilidad', icono: '📐' },
-      { nombre: 'Física', descripcion: 'Mecánica, electricidad, ondas y termodinámica', icono: '⚡' },
-      { nombre: 'Química', descripcion: 'Estequiometría, enlaces, reacciones y formulación', icono: '🧪' }
+      { nombre: 'Matemáticas', descripcion: 'Álgebra, geometría, estadística y probabilidad', icono: 'ruler' },
+      { nombre: 'Física', descripcion: 'Mecánica, electricidad, ondas y termodinámica', icono: 'zap' },
+      { nombre: 'Química', descripcion: 'Estequiometría, enlaces, reacciones y formulación', icono: 'flask-conical' }
     ],
     horarios: {
       dias: ['Lunes', 'Miércoles', 'Viernes'],
@@ -44,10 +46,10 @@ export const niveles: Nivel[] = [
     label: 'Bachillerato',
     descripcion: 'Bachillerato de Ciencias y Tecnología',
     asignaturas: [
-      { nombre: 'Matemáticas I', descripcion: 'Álgebra lineal, análisis y geometría analítica', icono: '📐' },
-      { nombre: 'Matemáticas II', descripcion: 'Cálculo integral, probabilidad y estadística avanzada', icono: '📊' },
-      { nombre: 'Física', descripcion: 'Mecánica avanzada, electromagnetismo y óptica', icono: '⚡' },
-      { nombre: 'Química', descripcion: 'Química orgánica, termoquímica y equilibrio químico', icono: '🧪' }
+      { nombre: 'Matemáticas I', descripcion: 'Álgebra lineal, análisis y geometría analítica', icono: 'ruler' },
+      { nombre: 'Matemáticas II', descripcion: 'Cálculo integral, probabilidad y estadística avanzada', icono: 'chart-column' },
+      { nombre: 'Física', descripcion: 'Mecánica avanzada, electromagnetismo y óptica', icono: 'zap' },
+      { nombre: 'Química', descripcion: 'Química orgánica, termoquímica y equilibrio químico', icono: 'flask-conical' }
     ],
     horarios: {
       dias: ['Martes', 'Jueves'],
@@ -60,9 +62,9 @@ export const niveles: Nivel[] = [
     label: 'CFGS Administración y Finanzas',
     descripcion: 'Ciclo Formativo de Grado Superior',
     asignaturas: [
-      { nombre: 'Matemáticas Financieras', descripcion: 'Capitalización, descuento, rentas y préstamos', icono: '💰' },
-      { nombre: 'Contabilidad', descripcion: 'Contabilidad financiera, PGC y análisis de balances', icono: '📋' },
-      { nombre: 'Fiscalidad', descripcion: 'IRPF, IVA, Impuesto de Sociedades', icono: '📄' }
+      { nombre: 'Matemáticas Financieras', descripcion: 'Capitalización, descuento, rentas y préstamos', icono: 'coins' },
+      { nombre: 'Contabilidad', descripcion: 'Contabilidad financiera, PGC y análisis de balances', icono: 'clipboard-list' },
+      { nombre: 'Fiscalidad', descripcion: 'IRPF, IVA, Impuesto de Sociedades', icono: 'file-text' }
     ],
     horarios: {
       dias: ['Sábado'],
@@ -75,19 +77,19 @@ export const niveles: Nivel[] = [
 export const especialidades: Especialidad[] = [
   {
     nombre: 'Matemáticas',
-    icono: '📐',
+    icono: 'ruler',
     color: 'blue',
     descripcion: 'Especialista en matemáticas con experiencia en todos los niveles educativos'
   },
   {
     nombre: 'Física',
-    icono: '⚡',
+    icono: 'zap',
     color: 'purple',
     descripcion: 'Apasionada de la física con enfoque práctico y cercano'
   },
   {
     nombre: 'Química',
-    icono: '🧪',
+    icono: 'flask-conical',
     color: 'green',
     descripcion: 'Experta en química con métodos didácticos innovadores'
   }
@@ -98,5 +100,5 @@ export const profesor = {
   titulo: 'Técnico Superior en Administración y Finanzas',
   experiencia: 'Más de 10 años',
   bio: 'Más de 10 años de experiencia ayudando a estudiantes de ESO, Bachillerato y CFGS a aprobar matemáticas, física y química. Más del 95% de aprobados.',
-  modalidad: 'Clases individuales a domicilio'
+  modalidad: 'Clases presenciales a domicilio en El Ejido'
 }
