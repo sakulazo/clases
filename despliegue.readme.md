@@ -25,8 +25,8 @@
 │  /srv/clases/          ← Archivos servidos por Caddy       │
 │    ├── index.html                                          │
 │    ├── _astro/                                             │
-│    ├── contacto/                                           │
-│    ├── nivel/                                              │
+│    ├── logo.svg                                            │
+│    ├── logo_clases_2colores_vertical.svg                   │
 │    └── escudo-el-ejido.svg                                 │
 │                                                            │
 │  Caddy (Docker)                                            │
@@ -103,15 +103,12 @@ curl -s -o /dev/null -w "%{http_code}\n" https://clases.sakulazo.com/
 ```
 ~/dev/clases/
 ├── src/
-│   ├── components/     ← Componentes reutilizables (Header, Footer, Hero, etc.)
-│   ├── data/           ← Datos de cursos y niveles
-│   ├── layouts/        ← Layouts de Astro
-│   ├── pages/          ← Páginas del sitio
-│   │   ├── index.astro
-│   │   ├── contacto.astro
-│   │   └── nivel/[id].astro
-│   └── styles/         ← Estilos globales
-├── public/             ← Archivos estáticos (svg, favicon, etc.)
+│   ├── components/     ← UI reutilizable (Header, Hero, NivelSection, Icon…)
+│   ├── data/           ← cursos.ts (niveles y asignaturas: fuente de verdad)
+│   ├── layouts/        ← BaseLayout.astro
+│   ├── pages/          ← index.astro (sitio de una sola página)
+│   └── styles/         ← global.css
+├── public/             ← Archivos estáticos (logo.svg, escudo-el-ejido.svg…)
 ├── dist/               ← Build generado (no se sube a git)
 ├── astro.config.mjs    ← Configuración de Astro
 ├── tailwind.config.mjs ← Configuración de Tailwind CSS
@@ -135,5 +132,5 @@ curl -s -o /dev/null -w "%{http_code}\n" https://clases.sakulazo.com/
 | `sudo: Permission denied` | `sakulito` sin sudo NOPASSWD | Verificar `/etc/sudoers.d/` |
 | Caddy no sirve el sitio | Falta el mount en compose.yml | Añadir `- /srv/clases:/srv/clases:ro` en `volumes` y recrear contenedor |
 | SSL no se emite | DNS no resuelve | Verificar registro A de `clases.sakulazo.com` |
-| `ssh vps` no funciona | Clave no autorizada | Verificar `~/.ssh/id_ed25519.pub` en `/home/sakulito/.ssh/authorized_keys` |
+| `ssh vps` no funciona | Clave no autorizada | Comprobar la clave del alias (`~/.ssh/config` → `IdentityFile`) en el `authorized_keys` de `sakulito` |
 | Push a `master` por error | Rama antigua ya borrada | Usar `git push origin main`; `master` fue eliminada el 2026-08-03 |
