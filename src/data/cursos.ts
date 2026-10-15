@@ -31,8 +31,8 @@ export const niveles: Nivel[] = [
     label: 'ESO',
     descripcion: 'Educación Secundaria Obligatoria',
     asignaturas: [
-      { nombre: 'Matemáticas', descripcion: 'Álgebra, geometría, estadística y probabilidad', icono: 'ruler' },
-      { nombre: 'Física', descripcion: 'Mecánica, electricidad, ondas y termodinámica', icono: 'zap' },
+      { nombre: 'Matemáticas', descripcion: 'Álgebra, geometría, estadística y probabilidad', icono: 'pi' },
+      { nombre: 'Física', descripcion: 'Mecánica, electricidad, ondas y termodinámica', icono: 'atom' },
       { nombre: 'Química', descripcion: 'Estequiometría, enlaces, reacciones y formulación', icono: 'flask-conical' }
     ],
     horarios: {
@@ -46,9 +46,9 @@ export const niveles: Nivel[] = [
     label: 'Bachillerato',
     descripcion: 'Bachillerato de Ciencias y Tecnología',
     asignaturas: [
-      { nombre: 'Matemáticas I', descripcion: 'Álgebra lineal, análisis y geometría analítica', icono: 'ruler' },
-      { nombre: 'Matemáticas II', descripcion: 'Cálculo integral, probabilidad y estadística avanzada', icono: 'chart-column' },
-      { nombre: 'Física', descripcion: 'Mecánica avanzada, electromagnetismo y óptica', icono: 'zap' },
+      { nombre: 'Matemáticas I', descripcion: 'Álgebra lineal, análisis y geometría analítica', icono: 'pi' },
+      { nombre: 'Matemáticas II', descripcion: 'Cálculo integral, probabilidad y estadística avanzada', icono: 'pi' },
+      { nombre: 'Física', descripcion: 'Mecánica avanzada, electromagnetismo y óptica', icono: 'atom' },
       { nombre: 'Química', descripcion: 'Química orgánica, termoquímica y equilibrio químico', icono: 'flask-conical' }
     ],
     horarios: {
@@ -77,21 +77,21 @@ export const niveles: Nivel[] = [
 export const especialidades: Especialidad[] = [
   {
     nombre: 'Matemáticas',
-    icono: 'ruler',
+    icono: 'pi',
     color: 'blue',
     descripcion: 'Especialista en matemáticas con experiencia en todos los niveles educativos'
   },
   {
     nombre: 'Física',
-    icono: 'zap',
+    icono: 'atom',
     color: 'purple',
-    descripcion: 'Apasionada de la física con enfoque práctico y cercano'
+    descripcion: 'Apasionado de la física con enfoque práctico y cercano'
   },
   {
     nombre: 'Química',
     icono: 'flask-conical',
     color: 'green',
-    descripcion: 'Experta en química con métodos didácticos innovadores'
+    descripcion: 'Experto en química con métodos didácticos innovadores'
   }
 ]
 
