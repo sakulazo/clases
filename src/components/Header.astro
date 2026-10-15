@@ -11,7 +11,13 @@ const navItems = [
 <header class="bg-white dark:bg-gray-900 shadow-sm dark:shadow-gray-800/50 sticky top-0 z-50 transition-colors">
   <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
     <a href="#inicio" class="flex items-center transition-opacity hover:opacity-80" aria-label="Clases Particulares - Inicio">
-      <img src="/logo.svg" alt="Clases Particulares" class="h-12 w-auto" />
+      <!-- Modo claro: texto azul / Modo oscuro: texto blanco -->
+      <img src="/logo.svg" alt="Clases Particulares" class="block dark:hidden h-12 w-auto" />
+      <img
+        src="/logo_horizontal_claro.svg"
+        alt="Clases Particulares"
+        class="hidden dark:block h-12 w-auto"
+      />
     </a>
 
     <!-- Desktop nav -->

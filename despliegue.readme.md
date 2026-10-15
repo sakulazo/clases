@@ -26,6 +26,7 @@
 │    ├── index.html                                          │
 │    ├── _astro/                                             │
 │    ├── logo.svg                                            │
+│    ├── logo_horizontal_claro.svg                           │
 │    ├── logo_clases_2colores_vertical.svg                   │
 │    └── escudo-el-ejido.svg                                 │
 │                                                            │
