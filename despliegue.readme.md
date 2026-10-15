@@ -14,12 +14,12 @@
 │  make deploy MSG="..."                                   │
 │    ├── pnpm build  →  Genera dist/                       │
 │    ├── git add/commit/push  →  GitHub (rama main)        │
-│    └── tar|ssh  →  Sube dist/ al VPS (usuario sakulito)  │
+│    └── tar|ssh  →  Sube dist/ al VPS (alias SSH: vps)    │
 └──────────────────────────────────────────────────────────┘
                          │
                          ▼
 ┌─ VPS (producción) ─────────────────────────────────────────┐
-│  Servidor: 185.214.134.40 (SSH puerto 42932)              │
+│  Servidor: VPS de producción (SSH por alias: vps)         │
 │  Usuario SSH: sakulito (sudo sin contraseña)              │
 │                                                            │
 │  /srv/clases/          ← Archivos servidos por Caddy       │
@@ -38,9 +38,9 @@
 
 ## Requisitos previos
 
-- **Local**: Node.js, pnpm, Git, clave `~/.ssh/id_ed25519` autorizada para `sakulito`
+- **Local**: Node.js, pnpm, Git y el alias SSH `vps` de `~/.ssh/config`
 - **VPS**: Caddy en Docker, directorio `/srv/clases/` creado, `sakulito` con sudo sin contraseña
-- **DNS**: Registro A de `clases.sakulazo.com` → `185.214.134.40`
+- **DNS**: Registro A de `clases.sakulazo.com` → IP del VPS
 
 ## Despliegue rápido (un solo comando)
 
@@ -91,7 +91,7 @@ git commit -m "Descripción de los cambios"
 git push origin main
 
 # 3. Copiar al VPS (tar evita sobrescribir con permisos rotos)
-tar -C dist -cf - . | ssh -i ~/.ssh/id_ed25519 -p 42932 sakulito@185.214.134.40 \
+tar -C dist -cf - . | ssh vps \
   'sudo tar -C /srv/clases -xf - && sudo chown -R vps-manager:vps-manager /srv/clases'
 
 # 4. Verificar
@@ -135,5 +135,5 @@ curl -s -o /dev/null -w "%{http_code}\n" https://clases.sakulazo.com/
 | `sudo: Permission denied` | `sakulito` sin sudo NOPASSWD | Verificar `/etc/sudoers.d/` |
 | Caddy no sirve el sitio | Falta el mount en compose.yml | Añadir `- /srv/clases:/srv/clases:ro` en `volumes` y recrear contenedor |
 | SSL no se emite | DNS no resuelve | Verificar registro A de `clases.sakulazo.com` |
-| `ssh sakulito` no funciona | Clave no autorizada | Verificar `~/.ssh/id_ed25519.pub` en `/home/sakulito/.ssh/authorized_keys` |
+| `ssh vps` no funciona | Clave no autorizada | Verificar `~/.ssh/id_ed25519.pub` en `/home/sakulito/.ssh/authorized_keys` |
 | Push a `master` por error | Rama antigua ya borrada | Usar `git push origin main`; `master` fue eliminada el 2026-08-03 |
